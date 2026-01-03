@@ -1,7 +1,289 @@
-.project-card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin: 15px;
-  border-radius: 10px;
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+:root {
+  --background: hsl(220, 20%, 6%);
+  --foreground: hsl(210, 20%, 95%);
+  --card: hsl(220, 18%, 10%);
+  --primary: hsl(175, 80%, 50%);
+  --secondary: hsl(220, 15%, 15%);
+  --muted: hsl(215, 15%, 55%);
+  --border: hsl(220, 15%, 20%);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Background Effects */
+.grid-pattern {
+  position: fixed;
+  inset: 0;
+  opacity: 0.02;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(var(--primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.glow-orb {
+  position: fixed;
+  width: 24rem;
+  height: 24rem;
+  background: hsl(175, 80%, 50%, 0.05);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.glow-orb.top-left { top: 0; left: 25%; }
+.glow-orb.bottom-right { bottom: 0; right: 25%; }
+
+main { position: relative; z-index: 10; }
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(90deg, var(--primary), hsl(185, 80%, 60%), hsl(165, 70%, 65%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px hsl(175, 80%, 50%, 0.5);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  max-width: 64rem;
+}
+
+@media (min-width: 768px) { .hero { padding: 4rem 3rem; } }
+@media (min-width: 1024px) { .hero { padding: 4rem 6rem; } }
+
+.hero-greeting {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.hero-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+@media (min-width: 768px) { .hero-title { font-size: 3.75rem; } }
+@media (min-width: 1024px) { .hero-title { font-size: 4.5rem; } }
+
+.ampersand { color: var(--muted); }
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--muted);
+  max-width: 42rem;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+@media (min-width: 768px) { .hero-description { font-size: 1.25rem; } }
+
+.scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.8s forwards;
+}
+
+.scroll-line {
+  width: 3rem;
+  height: 1px;
+  background: hsl(175, 80%, 50%, 0.5);
+}
+
+.scroll-indicator span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* Skills Section */
+.skills {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) { .skills { padding: 5rem 3rem; } }
+@media (min-width: 1024px) { .skills { padding: 5rem 6rem; } }
+
+.section-header {
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--primary);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-header h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) { .section-header h2 { font-size: 2.25rem; } }
+
+.skills-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Skill Card */
+.skill-card {
+  position: relative;
+  display: block;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: 1rem;
+  border: 1px solid hsl(175, 80%, 50%, 0.2);
+  box-shadow: 0 4px 24px -4px hsl(0, 0%, 0%, 0.5), 0 0 40px -10px hsl(175, 80%, 50%, 0.3);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out var(--delay) forwards;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.card-glow-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, hsl(175, 80%, 50%, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.skill-card:hover .card-glow-overlay { opacity: 1; }
+
+.card-corner-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6rem;
+  height: 6rem;
+  background: linear-gradient(225deg, hsl(175, 80%, 50%, 0.2), transparent);
+  border-radius: 0 0 0 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.skill-card:hover .card-corner-accent { opacity: 1; }
+
+.card-content { position: relative; z-index: 10; }
+
+.icon-wrapper {
+  display: inline-flex;
+  padding: 1rem;
+  background: hsl(220, 15%, 15%, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  transition: border-color 0.3s;
+}
+
+.skill-card:hover .icon-wrapper {
+  border-color: hsl(175, 80%, 50%, 0.3);
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  transition: background 0.3s;
+}
+
+.skill-card:hover .card-content h3 {
+  background: linear-gradient(90deg, var(--primary), hsl(185, 80%, 60%), hsl(165, 70%, 65%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-content p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--primary);
+}
+
+.card-link .arrow {
+  transition: transform 0.3s;
+}
+
+.skill-card:hover .card-link .arrow {
+  transform: translateX(5px);
+}
+
+.card-bottom-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(175, 80%, 50%, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.skill-card:hover .card-bottom-glow { opacity: 1; }
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
