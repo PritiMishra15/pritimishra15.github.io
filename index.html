@@ -2,84 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Priti Mishra | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Software Developer & Project Lead</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <!-- Background Effects -->
+  <div class="grid-pattern"></div>
+  <div class="glow-orb top-left"></div>
+  <div class="glow-orb bottom-right"></div>
 
-  <!-- ===== NAVBAR ===== -->
-  <header>
-    <nav class="navbar">
-      <h2 class="logo">Priti Mishra</h2>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ===== INTRO SECTION ===== -->
-  <section id="home" class="home">
-    <div class="home-text">
-      <h1>Hi, I'm Priti 👋</h1>
-      <h3>Aspiring Software Developer</h3>
-      <p>
-        I build projects using Python, Web Technologies and other programming
-        languages. This portfolio showcases my work and learning journey.
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <p class="hero-greeting">> Hello, World_</p>
+      <h1 class="hero-title">
+        I'm a <span class="text-gradient">Software Developer</span><br>
+        <span class="ampersand">&</span> <span class="text-gradient">Project Lead</span>
+      </h1>
+      <p class="hero-description">
+        Crafting elegant solutions through code. Passionate about building 
+        scalable applications and leading teams to deliver exceptional software.
       </p>
-    </div>
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>scroll to explore</span>
+      </div>
+    </section>
 
-    <div class="home-image">
-      <img src="images/profile.jpg" alt="Priti Mishra">
-    </div>
-  </section>
+    <!-- Skills Section -->
+    <section class="skills">
+      <div class="section-header">
+        <p class="section-label">// expertise</p>
+        <h2>What I <span class="text-gradient">Build</span></h2>
+      </div>
 
-  <!-- ===== PROJECT CATEGORIES ===== -->
-  <section id="projects" class="projects">
-    <h2>My Projects</h2>
-    <p>Select a category to explore my work</p>
+      <div class="skills-grid">
+        <!-- HTML Card -->
+        <a href="#html" class="skill-card" style="--delay: 0s">
+          <div class="card-glow-overlay"></div>
+          <div class="card-corner-accent"></div>
+          <div class="card-content">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3>HTML</h3>
+            <p>Crafting semantic, accessible markup that forms the foundation of exceptional web experiences.</p>
+            <div class="card-link">
+              <span>Explore</span>
+              <span class="arrow">→</span>
+            </div>
+          </div>
+          <div class="card-bottom-glow"></div>
+        </a>
 
-    <div class="project-links">
+        <!-- CSS Card -->
+        <a href="#css" class="skill-card" style="--delay: 0.15s">
+          <div class="card-glow-overlay"></div>
+          <div class="card-corner-accent"></div>
+          <div class="card-content">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/>
+              </svg>
+            </div>
+            <h3>CSS</h3>
+            <p>Designing stunning layouts with modern CSS, animations, Flexbox, Grid, and responsive design principles.</p>
+            <div class="card-link">
+              <span>Explore</span>
+              <span class="arrow">→</span>
+            </div>
+          </div>
+          <div class="card-bottom-glow"></div>
+        </a>
 
-      <a href="python.html" class="project-card">
-        🐍 Python Projects
-      </a>
+        <!-- JavaScript Card -->
+        <a href="#javascript" class="skill-card" style="--delay: 0.3s">
+          <div class="card-glow-overlay"></div>
+          <div class="card-corner-accent"></div>
+          <div class="card-content">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/>
+              </svg>
+            </div>
+            <h3>JavaScript</h3>
+            <p>Building dynamic, interactive applications with modern ES6+, React, Node.js, and the full JS ecosystem.</p>
+            <div class="card-link">
+              <span>Explore</span>
+              <span class="arrow">→</span>
+            </div>
+          </div>
+          <div class="card-bottom-glow"></div>
+        </a>
+      </div>
+    </section>
+  </main>
 
-      <a href="web.html" class="project-card">
-        🌐 Web Development
-      </a>
-
-      <a href="java.html" class="project-card">
-        ☕ Java Projects
-      </a>
-
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-
-    <p>Email: 
-      <a href="mailto:pritimishra@email.com">
-        pritimishra@email.com
-      </a>
-    </p>
-
-    <p>
-      GitHub: 
-      <a href="https://github.com/PritiMishra15" target="_blank">
-        github.com/PritiMishra15
-      </a>
-    </p>
-  </section>
-
-  <footer>
-    <p>© 2026 Priti Mishra</p>
-  </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
